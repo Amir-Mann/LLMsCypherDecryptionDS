@@ -24,7 +24,9 @@ STEP_BY_STEP_DECRYPTION_FORMAT = "After the decrypting the {i}. step, we get:\n{
 
 BASE_FOR_MSG_LENGTH = 1.35
 MIN_EXP_FOR_MSG_LENGTH = 4
-MAX_EXP_FOR_MSG_LENGTH = 13
+MAX_EXP_FOR_MSG_LENGTH = 9
+global_add_spaces_between_chars = []
+
 
 def random_gibberish_message():
     num_chars = int(BASE_FOR_MSG_LENGTH ** random.randint(MIN_EXP_FOR_MSG_LENGTH, MAX_EXP_FOR_MSG_LENGTH))
@@ -68,7 +70,11 @@ class EncryptionMethod:
         return decrypted
     
     def __str__(self):
-        return f"{self.description} For example abcioeuzxy becomes {self.encrypet_msg('abcioeuzxy')}"
+        sample = ' '.join(list("abcioeuzxy")) if global_add_spaces_between_chars else "abcioeuzxy"
+        encrypted = self.encrypet_msg('abcioeuzxy')
+        if global_add_spaces_between_chars:
+            encrypted = ' '.join(list(encrypted))
+        return f"{self.description} For example {sample} becomes {encrypted}"
 
 ENCRYPTION_METHODS_GROUPS = [
     [
@@ -119,14 +125,23 @@ def generate_question(args):
     for cypher in cyphers:
         encrypted_stages.append(cypher.encrypet_msg(encrypted_stages[-1]))
     
+    #Question
+    encryption_methods = "\n".join([f"{i+1}. {cypher}" for i, cypher in enumerate(cyphers)])
+    
     question = BASE_QUESTION_TEMPLATE.format(
-        encryption_methods="\n".join([f"{i+1}. {cypher}" for i, cypher in enumerate(cyphers)]),
+        encryption_methods=encryption_methods,
         encrypted_msg=encrypted_stages[-1]
     )
+    
+    #Answer
+    step_by_step_decryption = "\n".join([
+        STEP_BY_STEP_DECRYPTION_FORMAT.format(i=i+1, decryption_step=(' '.join(list(msg)) if args.add_spaces_between_chars else msg)) 
+        for i, msg in list(enumerate(encrypted_stages))[-2::-1] # [a, b, c, d] -> [(2, c), (1, b), (0, a)]
+    ])
+    
     answer = BASE_ANSWER_TEMPLATE.format(
-        step_by_step_decryption="\n".join([STEP_BY_STEP_DECRYPTION_FORMAT.format(i=i+1, decryption_step=msg) for i, msg in
-                                           list(enumerate(encrypted_stages))[-2::-1]]), # [a, b, c, d] -> [(2, c), (1, b), (0, a)]
-        original_message=msg
+        step_by_step_decryption=step_by_step_decryption,
+        original_message=(' '.join(list(msg)) if args.add_spaces_between_chars else msg)
     )
     print(f"QUESTION:\n{question}\n\nANSWER:\n{answer}")
 
@@ -141,7 +156,11 @@ def main():
                         help='Amount of questions to generate')
     parser.add_argument('--message_mode', type=str, default="gibberish",
                         help='Which mode to generate message in', choices=["gibberish"])
+    parser.add_argument('--add_spaces_between_chars', type=bool, default=True,
+                        help='Should we have spaces between chars in the message / decryption (for transformers ease): "abc" vs "a b c"')
     args = parser.parse_args()
+    if args.add_spaces_between_chars:
+        global_add_spaces_between_chars.append(None)
     for question_num in range(args.questions_to_generate):
         generate_question(args)
 
