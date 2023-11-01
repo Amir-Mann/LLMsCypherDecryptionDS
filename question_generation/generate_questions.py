@@ -6,7 +6,7 @@ import random
 import argparse
 
 
-BASE_TEMPLATE = """I have a secret message.
+BASE_QUESTION_TEMPLATE = """I have a secret message.
 I used the following encryption methods:
 {encryption_methods}
 And finally got this encrypred result:
@@ -14,11 +14,19 @@ And finally got this encrypred result:
 Can you help me decypher the original message?
 """
 
+BASE_ANSWER_TEMPLATE = """Let's decrypt it step by step:
+{step_by_step_decryption}
+So the original message was:
+{original_message}
+"""
+
+STEP_BY_STEP_DECRYPTION_FORMAT = "After the decrypting the {i}. step, we get:\n{decryption_step}"
+
 BASE_FOR_MSG_LENGTH = 1.35
 MIN_EXP_FOR_MSG_LENGTH = 4
 MAX_EXP_FOR_MSG_LENGTH = 13
 
-def random_gybrish_message():
+def random_gibberish_message():
     num_chars = int(BASE_FOR_MSG_LENGTH ** random.randint(MIN_EXP_FOR_MSG_LENGTH, MAX_EXP_FOR_MSG_LENGTH))
     if num_chars % 2:
         num_chars += 1
@@ -36,7 +44,7 @@ class EncryptionMethod:
         self.inv_func = inv_func
         self.charecterwise = charecterwise 
         for _ in range(assertions_to_make):
-            test_msg = random_gybrish_message()
+            test_msg = random_gibberish_message()
             if self.decrypt_msg(self.encrypet_msg(test_msg)) != test_msg:
                 print(self)
                 print(f"Failed sanety check for {test_msg=}, {self.encrypet_msg(test_msg)=}, {self.decrypt_msg(self.encrypet_msg(test_msg))=}.")
@@ -65,12 +73,12 @@ class EncryptionMethod:
 ENCRYPTION_METHODS_GROUPS = [
     [
         EncryptionMethod(
-            "Caesar cipher or shift cipher with a distance of {i}, shifting every letter to the one {i} after her cyclically.",
-            lambda char: ord(ord("a") + ((chr(char) - ord("a") + i ) % 26 )),
-            lambda char: ord(ord("a") + ((chr(char) - ord("a") - i ) % 26 )),
+            f"Caesar cipher or shift cipher with a distance of {i}, shifting every letter to the one {i} after her cyclically.",
+            lambda char: chr(ord("a") + ((ord(char) - ord("a") + i ) % 26 )),
+            lambda char: chr(ord("a") + ((ord(char) - ord("a") - i ) % 26 )),
             charecterwise=True
         )
-        for i in range(26)
+        for i in range(-12, 14)
     ],
     [
         EncryptionMethod(
@@ -88,7 +96,9 @@ ENCRYPTION_METHODS_GROUPS = [
             lambda string: string[int(len(string) / 2):] + string[:int(len(string) / 2)],
             lambda string: string[int(len(string) / 2):] + string[:int(len(string) / 2)]
         )
-    ],
+    ]
+]
+""",
     [
         EncryptionMethod(
             f"Swapping all '{char_1}' with '{char_2}' and all '{char_2}' with '{char_1}'",
@@ -96,12 +106,30 @@ ENCRYPTION_METHODS_GROUPS = [
             lambda string: string.replace(char_1, "\127").replace(char_2, char_1).replace("\127", char_1)
         )
         for char_1 in "aouiey" for char_2 in "aouiey" if char_1 != char_2
-    ]
-]
-
+    ]"""
 
 def generate_question(args):
-    pass
+    amount_of_cyphers = args.cyphers_per_question + random.randint(0,  args.cyphers_ammount_variation)
+    cyphers = [random.choice(random.choice(ENCRYPTION_METHODS_GROUPS)) 
+               for _ in range(amount_of_cyphers)]
+    if args.message_mode == "gibberish":
+        msg = random_gibberish_message()
+    
+    encrypted_stages = [msg]
+    for cypher in cyphers:
+        encrypted_stages.append(cypher.encrypet_msg(encrypted_stages[-1]))
+    
+    question = BASE_QUESTION_TEMPLATE.format(
+        encryption_methods="\n".join([f"{i+1}. {cypher}" for i, cypher in enumerate(cyphers)]),
+        encrypted_msg=encrypted_stages[-1]
+    )
+    answer = BASE_ANSWER_TEMPLATE.format(
+        step_by_step_decryption="\n".join([STEP_BY_STEP_DECRYPTION_FORMAT.format(i=i+1, decryption_step=msg) for i, msg in
+                                           list(enumerate(encrypted_stages))[-2::-1]]), # [a, b, c, d] -> [(2, c), (1, b), (0, a)]
+        original_message=msg
+    )
+    print(f"QUESTION:\n{question}\n\nANSWER:\n{answer}")
+
 
 def main():
     parser = argparse.ArgumentParser(prog='Children cypher decryption Dataset Question generator')
@@ -111,6 +139,8 @@ def main():
                         help='Maximum amount of cyphers to add on the base amount')
     parser.add_argument('--questions_to_generate', type=int, default=80,
                         help='Amount of questions to generate')
+    parser.add_argument('--message_mode', type=str, default="gibberish",
+                        help='Which mode to generate message in', choices=["gibberish"])
     args = parser.parse_args()
     for question_num in range(args.questions_to_generate):
         generate_question(args)
