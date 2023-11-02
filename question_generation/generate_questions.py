@@ -99,17 +99,16 @@ ENCRYPTION_METHODS_GROUPS = [
             lambda string: string[int(len(string) / 2):] + string[:int(len(string) / 2)],
             lambda string: string[int(len(string) / 2):] + string[:int(len(string) / 2)]
         )
-    ]
-]
-""",
+    ],
     [
         EncryptionMethod(
             f"Swapping all '{char_1}' with '{char_2}' and all '{char_2}' with '{char_1}'",
-            lambda string: string.replace(char_1, "\127").replace(char_2, char_1).replace("\127", char_1),
-            lambda string: string.replace(char_1, "\127").replace(char_2, char_1).replace("\127", char_1)
+            lambda string: string.replace(char_1, "\127").replace(char_2, char_1).replace("\127", char_2),
+            lambda string: string.replace(char_1, "\127").replace(char_2, char_1).replace("\127", char_2)
         )
         for char_1 in "aouiey" for char_2 in "aouiey" if char_1 != char_2
-    ]"""
+    ]
+]
 
 def generate_question(args):
     amount_of_cyphers = args.cyphers_per_question + random.randint(0,  args.cyphers_ammount_variation)
@@ -127,7 +126,7 @@ def generate_question(args):
 
     question = BASE_QUESTION_TEMPLATE.format(
         encryption_methods=encryption_methods,
-        encrypted_msg=encrypted_stages[-1]
+        encrypted_msg=' '.join(list(encrypted_stages[-1])) if args.add_spaces_between_chars else encrypted_stages[-1]
     )
     
     #Answer
