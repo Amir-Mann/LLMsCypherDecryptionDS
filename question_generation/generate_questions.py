@@ -2,6 +2,7 @@ import os
 import sys
 import random
 import argparse
+import csv
 
 BASE_QUESTION_TEMPLATE = """I have a secret message.
 I used the following encryption methods:
@@ -184,7 +185,8 @@ def generate_question(args):
         step_by_step_decryption=step_by_step_decryption,
         original_message=(' '.join(list(msg)) if args.add_spaces_between_chars else msg)
     )
-    print(f"QUESTION:\n{question}\n\nANSWER:\n{answer}")
+    return question, answer
+    # print(f"QUESTION:\n{question}\n\nANSWER:\n{answer}")
 
 
 def main():
@@ -199,11 +201,22 @@ def main():
                         help='Which mode to generate message in', choices=["gibberish"])
     parser.add_argument('--add_spaces_between_chars', type=bool, default=True,
                         help='Should we have spaces between chars in the message / decryption (for transformers ease): "abc" vs "a b c"')
+    parser.add_argument('--file_name', type=str, default="dataset.csv", help='File name to save the dataset to')
     args = parser.parse_args()
     if args.add_spaces_between_chars:
         global_add_spaces_between_chars.append(None)
-    for question_num in range(args.questions_to_generate):
-        generate_question(args)
+        
+    # Opening the CSV file to write the dataset into
+    with open(args.file_name, mode='w', newline='') as file:
+        writer = csv.writer(file)
+    
+        # Generating the questions and answers and appending them to the CSV file    
+        for _ in range(args.questions_to_generate):
+            question, answer = generate_question(args)
+            writer.writerow([question, answer])
+        
+        print("Successfully generated the dataset in the file: " + args.file_name)    
+        
 
 if __name__ == "__main__":
     main()
