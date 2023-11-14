@@ -20,16 +20,14 @@ So the original message was:
 
 STEP_BY_STEP_DECRYPTION_FORMAT = "After the decrypting the {i}. step, we get:\n{decryption_step}"
 
-BASE_FOR_MSG_LENGTH = 1.35
-MIN_EXP_FOR_MSG_LENGTH = 4
-MAX_EXP_FOR_MSG_LENGTH = 9
+LENGTHS_ALLOWED = [
+    6, 12
+]
 global_add_spaces_between_chars = []
 
 
 def random_gibberish_message():
-    num_chars = int(BASE_FOR_MSG_LENGTH ** random.randint(MIN_EXP_FOR_MSG_LENGTH, MAX_EXP_FOR_MSG_LENGTH))
-    if num_chars % 2:
-        num_chars += 1
+    num_chars = random.choice(LENGTHS_ALLOWED)
     msg = ""
     for _ in range(num_chars):
         msg += chr(random.randint(ord("a"), ord("z")))
@@ -38,10 +36,11 @@ def random_gibberish_message():
 
 class EncryptionMethod:
 
-    def __init__(self, description, func, inv_func, characterwise=False, assertions_to_make=5):
+    def __init__(self, description, func, inv_func, param=None, characterwise=False, assertions_to_make=5):
         self.description = description
         self.func = func
         self.inv_func = inv_func
+        self.param = param
         self.characterwise = characterwise
         for _ in range(assertions_to_make):
             test_msg = random_gibberish_message()
@@ -53,36 +52,79 @@ class EncryptionMethod:
         if self.characterwise:
             encrypted = ""
             for c in msg:
-                encrypted += self.func(c)
+                encrypted += self.func(c) if self.param is None else self.func(c, self.param)
         else:
-            encrypted = self.func(msg)
+            encrypted = self.func(msg) if self.param is None else self.func(msg, self.param)
         return encrypted
 
     def decrypt_msg(self, msg):
         if self.characterwise:
             decrypted = ""
             for c in msg:
-                decrypted += self.inv_func(c)
+                decrypted += self.inv_func(c) if self.param is None else self.inv_func(c, self.param)
         else:
-            decrypted = self.inv_func(msg)
+            decrypted = self.inv_func(msg) if self.param is None else self.inv_func(msg, self.param)
         return decrypted
 
     def __str__(self):
-        sample = ' '.join(list("abcioeuzxy")) if global_add_spaces_between_chars else "abcioeuzxy"
-        encrypted = self.encrypt_msg('abcioeuzxy')
+        sample = ' '.join(list("abciotgeuzxy")) if global_add_spaces_between_chars else "abciotgeuzxy"
+        encrypted = self.encrypt_msg('abciotgeuzxy')
         if global_add_spaces_between_chars:
             encrypted = ' '.join(list(encrypted))
         return f"{self.description} For example {sample} becomes {encrypted}"
 
+
+
+
+ORDERS = [
+    [0, 2, 1],
+    [1, 0, 2],
+    [1, 2, 0],
+    [2, 0, 1],
+    [2, 1, 0]
+]
+
+def permutations_cipher(string, order):
+    order = ORDERS[order]
+    reorderd = [c for c in string]
+    for base in range(0, len(string), len(order)):
+        for old, new in enumerate(order):
+            reorderd[base + new] = string[base + old]
+    return "".join(reorderd)
+
+def permutations_cipher_revese(string, order):
+    for _ in range(5):
+        string = permutations_cipher(string, order)
+    return string
+
 ENCRYPTION_METHODS_GROUPS = [
     [
         EncryptionMethod(
-            f"Caesar cipher or shift cipher with a distance of {i}, shifting every letter to the one {i} after it cyclically.",
-            lambda char: chr(ord("a") + ((ord(char) - ord("a") + i ) % 26 )),
-            lambda char: chr(ord("a") + ((ord(char) - ord("a") - i ) % 26 )),
+            f"Permutation cipher in which charceters (0, 1, 2) move to positions ({', '.join(map(str, ORDERS[order]))}) respectively.",
+            permutations_cipher,
+            permutations_cipher_revese,
+            param=order
+        )
+        for order in range(5)
+    ],
+    [
+        EncryptionMethod(
+            f"Shift and increment cipher with a base of {i}, shifting every letter to the one ({i} + position) after it in the ABC cyclically.",
+            lambda string, offset: "".join([chr(ord("a") + ((ord(char) - ord("a") + offset + pos) % 26 )) for pos, char in enumerate(string)]),
+            lambda string, offset: "".join([chr(ord("a") + ((ord(char) - ord("a") - offset - pos) % 26 )) for pos, char in enumerate(string)]),
+            param=i
+        )
+        for i in range(0, 10)
+    ],
+    [
+        EncryptionMethod(
+            f"Caesar cipher or shift cipher with a distance of {i}, shifting every letter to the one {i} after it in the ABC cyclically.",
+            lambda char, offset: chr(ord("a") + ((ord(char) - ord("a") + offset) % 26 )),
+            lambda char, offset: chr(ord("a") + ((ord(char) - ord("a") - offset) % 26 )),
+            param=i,
             characterwise=True
         )
-        for i in range(-12, 14)
+        for i in range(1, 25)
     ],
     [
         EncryptionMethod(
@@ -100,7 +142,11 @@ ENCRYPTION_METHODS_GROUPS = [
             lambda string: string[int(len(string) / 2):] + string[:int(len(string) / 2)],
             lambda string: string[int(len(string) / 2):] + string[:int(len(string) / 2)]
         )
-    ],
+    ]
+]
+"""
+UNUSED ENCRYPTIONS:
+,
     [
         EncryptionMethod(
             f"Swapping all '{char_1}' with '{char_2}' and all '{char_2}' with '{char_1}'",
@@ -108,8 +154,7 @@ ENCRYPTION_METHODS_GROUPS = [
             lambda string: string.replace(char_1, "\127").replace(char_2, char_1).replace("\127", char_2)
         )
         for char_1 in "aouiey" for char_2 in "aouiey" if char_1 != char_2
-    ]
-]
+    ]"""
 
 def generate_question(args):
     amount_of_cyphers = args.cyphers_per_question + random.randint(0,  args.cyphers_ammount_variation)
