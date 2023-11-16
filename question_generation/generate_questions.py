@@ -1,8 +1,8 @@
-import os
-import sys
+
 import random
 import argparse
 import csv
+import json
 
 BASE_QUESTION_TEMPLATE = """I have a secret message.
 I used the following encryption methods:
@@ -12,9 +12,9 @@ And finally got this encrypted result:
 Can you help me decipher the original message?
 """
 
-BASE_ANSWER_TEMPLATE = """Let's decipher it step by step:
+BASE_ANSWER_TEMPLATE = """Deciphering step by step:
 {step_by_step_decryption}
-So the original message was:
+After the decrypting the 1. step, we get the original message:
 {original_message}
 """
 
@@ -24,6 +24,7 @@ LENGTHS_ALLOWED = [
     6, 12
 ]
 global_add_spaces_between_chars = []
+golbal_six_letter_words = []
 
 
 def random_gibberish_message():
@@ -32,6 +33,14 @@ def random_gibberish_message():
     for _ in range(num_chars):
         msg += chr(random.randint(ord("a"), ord("z")))
     return msg
+
+
+def random_word_message():
+    global golbal_six_letter_words
+    if not golbal_six_letter_words:
+        with open("six-letter-words.json", "r") as f:
+            golbal_six_letter_words += json.load(f)
+    return random.choice(golbal_six_letter_words)
 
 
 class EncryptionMethod:
@@ -142,19 +151,18 @@ ENCRYPTION_METHODS_GROUPS = [
             lambda string: string[int(len(string) / 2):] + string[:int(len(string) / 2)],
             lambda string: string[int(len(string) / 2):] + string[:int(len(string) / 2)]
         )
-    ]
-]
-"""
-UNUSED ENCRYPTIONS:
-,
+    ],
     [
         EncryptionMethod(
             f"Swapping all '{char_1}' with '{char_2}' and all '{char_2}' with '{char_1}'",
-            lambda string: string.replace(char_1, "\127").replace(char_2, char_1).replace("\127", char_2),
-            lambda string: string.replace(char_1, "\127").replace(char_2, char_1).replace("\127", char_2)
+            lambda string, tup: string.replace(tup[0], "\127").replace(tup[1], tup[0]).replace("\127", tup[1]),
+            lambda string, tup: string.replace(tup[0], "\127").replace(tup[1], tup[0]).replace("\127", tup[1]),
+            param=(char_1, char_2)
         )
         for char_1 in "aouiey" for char_2 in "aouiey" if char_1 != char_2
-    ]"""
+    ]
+]
+
 
 def generate_question(args):
     amount_of_cyphers = args.cyphers_per_question + random.randint(0,  args.cyphers_ammount_variation)
@@ -162,6 +170,8 @@ def generate_question(args):
                for _ in range(amount_of_cyphers)]
     if args.message_mode == "gibberish":
         msg = random_gibberish_message()
+    elif args.message_mode == "word":
+        msg = random_word_message()
 
     encrypted_stages = [msg]
     for cypher in cyphers:
@@ -178,7 +188,7 @@ def generate_question(args):
     #Answer
     step_by_step_decryption = "\n".join([
         STEP_BY_STEP_DECRYPTION_FORMAT.format(i=i+1, decryption_step=(' '.join(list(msg)) if args.add_spaces_between_chars else msg)) 
-        for i, msg in list(enumerate(encrypted_stages))[-2::-1] # [a, b, c, d] -> [(2, c), (1, b), (0, a)]
+        for i, msg in list(enumerate(encrypted_stages))[-2:1:-1] # [a, b, c, d] -> [(2, c), (1, b)]
     ])
     
     answer = BASE_ANSWER_TEMPLATE.format(
@@ -198,7 +208,7 @@ def main():
     parser.add_argument('--questions_to_generate', type=int, default=80,
                         help='Amount of questions to generate')
     parser.add_argument('--message_mode', type=str, default="gibberish",
-                        help='Which mode to generate message in', choices=["gibberish"])
+                        help='Which mode to generate message in', choices=["gibberish", "word"])
     parser.add_argument('--add_spaces_between_chars', type=bool, default=True,
                         help='Should we have spaces between chars in the message / decryption (for transformers ease): "abc" vs "a b c"')
     parser.add_argument('--file_name', type=str, default="dataset.csv", help='File name to save the dataset to')
