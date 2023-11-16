@@ -209,6 +209,8 @@ def main():
     # Opening the CSV file to write the dataset into
     with open(args.file_name, mode='w', newline='') as file:
         writer = csv.writer(file)
+        # Generating Header
+        writer.writerow(["question", "answer"])
     
         # Generating the questions and answers and appending them to the CSV file    
         for _ in range(args.questions_to_generate):
