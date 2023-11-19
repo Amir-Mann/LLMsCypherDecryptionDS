@@ -12,7 +12,7 @@ And finally got this encrypted result:
 Can you help me decipher the original message?
 """
 
-BASE_ANSWER_TEMPLATE = """Deciphering step by step:
+BASE_ANSWER_TEMPLATE = """Let's decipher it step by step:
 {step_by_step_decryption}
 After the decrypting the 1. step, we get the original message:
 {original_message}
@@ -151,7 +151,11 @@ ENCRYPTION_METHODS_GROUPS = [
             lambda string: string[int(len(string) / 2):] + string[:int(len(string) / 2)],
             lambda string: string[int(len(string) / 2):] + string[:int(len(string) / 2)]
         )
-    ],
+    ]
+]
+"""
+UNUSED ENCRYPTIONS
+,
     [
         EncryptionMethod(
             f"Swapping all '{char_1}' with '{char_2}' and all '{char_2}' with '{char_1}'",
@@ -161,10 +165,11 @@ ENCRYPTION_METHODS_GROUPS = [
         )
         for char_1 in "aouiey" for char_2 in "aouiey" if char_1 != char_2
     ]
-]
+"""
 
 
 def generate_question(args):
+    
     amount_of_cyphers = args.cyphers_per_question + random.randint(0,  args.cyphers_ammount_variation)
     cyphers = [random.choice(random.choice(ENCRYPTION_METHODS_GROUPS))
                for _ in range(amount_of_cyphers)]
@@ -188,7 +193,7 @@ def generate_question(args):
     #Answer
     step_by_step_decryption = "\n".join([
         STEP_BY_STEP_DECRYPTION_FORMAT.format(i=i+1, decryption_step=(' '.join(list(msg)) if args.add_spaces_between_chars else msg)) 
-        for i, msg in list(enumerate(encrypted_stages))[-2:1:-1] # [a, b, c, d] -> [(2, c), (1, b)]
+        for i, msg in list(enumerate(encrypted_stages))[-2:0:-1] # [a, b, c, d] -> [(2, c), (1, b)]
     ])
     
     answer = BASE_ANSWER_TEMPLATE.format(
@@ -229,6 +234,63 @@ def main():
         
         print("Successfully generated the dataset in the file: " + args.file_name)    
         
+
+def find_cipher(text):
+    for group in ENCRYPTION_METHODS_GROUPS:
+        for cipher in group:
+            if cipher.description == text:
+                if "(0, 1, 2)" in text:
+                    print(cipher.description, text)
+                    print(f"012 -> {cipher.encrypt_msg('012')}")
+                return cipher
+    print(f"Text '{text}' couldn't be found")
+    return None
+
+def remake_question(question, answer, problematic_text, args = None):
+    global global_add_spaces_between_chars
+    if args is None:
+        global_add_spaces_between_chars += [True]
+    if problematic_text not in question:
+        return question, answer
+    
+    HARDCODED_TEXT = "I have a secret message.\nI used the following encryption methods:\n1. "
+    cyphers_texts = [question[len(HARDCODED_TEXT):]]
+    for i in range(2, 100):
+        if f"\n{i}. " not in cyphers_texts[-1]:
+            break
+        cyphers_texts.append(cyphers_texts[-1][cyphers_texts[-1].find("\n2. ") + 4:])
+    cyphers_texts = [text[:text.find(" For example")] for text in cyphers_texts]
+    
+    cyphers = list(map(find_cipher, cyphers_texts))
+    
+    END = "So the original message was:"
+    msg = answer[answer.find(END) + len(END) + 1:-1].replace(" ", "")
+
+    encrypted_stages = [msg]
+    for cypher in cyphers:
+        encrypted_stages.append(cypher.encrypt_msg(encrypted_stages[-1]))
+    
+    #Question
+    encryption_methods = "\n".join([f"{i+1}. {cypher}" for i, cypher in enumerate(cyphers)])
+
+    question = BASE_QUESTION_TEMPLATE.format(
+        encryption_methods=encryption_methods,
+        encrypted_msg=' '.join(list(encrypted_stages[-1])) if global_add_spaces_between_chars else encrypted_stages[-1]
+    )
+    
+    #Answer
+    step_by_step_decryption = "\n".join([
+        STEP_BY_STEP_DECRYPTION_FORMAT.format(i=i+1, decryption_step=(' '.join(list(msg)) if global_add_spaces_between_chars else msg)) 
+        for i, msg in list(enumerate(encrypted_stages))[-2:0:-1] # [a, b, c, d] -> [(2, c), (1, b)]
+    ])
+    
+    answer = BASE_ANSWER_TEMPLATE.format(
+        step_by_step_decryption=step_by_step_decryption,
+        original_message=(' '.join(list(msg)) if global_add_spaces_between_chars else msg)
+    )
+    return question, answer
+        
+    
 
 if __name__ == "__main__":
     main()

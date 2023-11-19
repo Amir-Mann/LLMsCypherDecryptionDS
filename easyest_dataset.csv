@@ -1,0 +1,881 @@
+question,answer
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (2, 1, 0) respectively. For example a b c i o t g e u z x y becomes c b a t o i u e g y x z
+And finally got this encrypted result:
+u r f s t i
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+f r u i t s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 0, shifting every letter to the one (0 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes a c e l s y m l c i h j
+And finally got this encrypted result:
+b f c w i s
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+b e a t e n
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Inverse order, reading the message from end to start. For example a b c i o t g e u z x y becomes y x z u e g t o i c b a
+And finally got this encrypted result:
+d e m r o w
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+w o r m e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping first half of the message with the second half. For example a b c i o t g e u z x y becomes g e u z x y a b c i o t
+And finally got this encrypted result:
+i r m s q u
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+s q u i r m
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 10, shifting every letter to the one 10 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes k l m s y d q o e j h i
+And finally got this encrypted result:
+p s v v o d
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+f i l l e t
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 8, shifting every letter to the one 8 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes i j k q w b o m c h f g
+And finally got this encrypted result:
+a p w c b a
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+s h o u t s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 10, shifting every letter to the one 10 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes k l m s y d q o e j h i
+And finally got this encrypted result:
+b o b o k n
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+r e r e a d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 1, shifting every letter to the one (1 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes b d f m t z n m d j i k
+And finally got this encrypted result:
+i q p m q e
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+h o m i l y
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'y' with 'a' and all 'a' with 'y' For example a b c i o t g e u z x y becomes y b c i o t g e u z x a
+And finally got this encrypted result:
+g r o v e l
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+g r o v e l
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 8, shifting every letter to the one (8 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes i k m t a g u t k q p r
+And finally got this encrypted result:
+h r b n a a
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+z i r c o n
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 16, shifting every letter to the one 16 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes q r s y e j w u k p n o
+And finally got this encrypted result:
+c k i b y c
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+m u s l i m
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Inverse order, reading the message from end to start. For example a b c i o t g e u z x y becomes y x z u e g t o i c b a
+And finally got this encrypted result:
+r e d a e l
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+l e a d e r
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 6, shifting every letter to the one (6 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes g i k r y e s r i o n p
+And finally got this encrypted result:
+s v v r o o
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+m o n i e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (2, 0, 1) respectively. For example a b c i o t g e u z x y becomes b c a o t i e u g x y z
+And finally got this encrypted result:
+o n p e s i
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+p o n i e s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 6, shifting every letter to the one 6 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes g h i o u z m k a f d e
+And finally got this encrypted result:
+t k z n k x
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+n e t h e r
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'i' with 'a' and all 'a' with 'i' For example a b c i o t g e u z x y becomes i b c a o t g e u z x y
+And finally got this encrypted result:
+r e s u l t
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+r e s u l t
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping adjacent characters, first one swaps with second one, third with forth and so on. For example a b c i o t g e u z x y becomes b a i c t o e g z u y x
+And finally got this encrypted result:
+o m e l t s
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+m o l e s t
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 8, shifting every letter to the one (8 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes i k m t a g u t k q p r
+And finally got this encrypted result:
+n r v x q q
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+f i l m e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping adjacent characters, first one swaps with second one, third with forth and so on. For example a b c i o t g e u z x y becomes b a i c t o e g z u y x
+And finally got this encrypted result:
+i m i x g n
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+m i x i n g
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (2, 1, 0) respectively. For example a b c i o t g e u z x y becomes c b a t o i u e g y x z
+And finally got this encrypted result:
+f o s e i t
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+s o f t i e
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 4, shifting every letter to the one 4 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes e f g m s x k i y d b c
+And finally got this encrypted result:
+e r x p i v
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+a n t l e r
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'o' with 'y' and all 'y' with 'o' For example a b c i o t g e u z x y becomes a b c i y t g e u z x o
+And finally got this encrypted result:
+r u l e r s
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+r u l e r s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping adjacent characters, first one swaps with second one, third with forth and so on. For example a b c i o t g e u z x y becomes b a i c t o e g z u y x
+And finally got this encrypted result:
+u b g d d e
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+b u d g e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 0, shifting every letter to the one (0 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes a c e l s y m l c i h j
+And finally got this encrypted result:
+d p i j m j
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+d o g g i e
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (2, 0, 1) respectively. For example a b c i o t g e u z x y becomes b c a o t i e u g x y z
+And finally got this encrypted result:
+g l u e r i
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+u g l i e r
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'u' with 'e' and all 'e' with 'u' For example a b c i o t g e u z x y becomes a b c i o t g u e z x y
+And finally got this encrypted result:
+r u f l u x
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+r e f l e x
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 2, shifting every letter to the one 2 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes c d e k q v i g w b z a
+And finally got this encrypted result:
+m p q d d a
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+k n o b b y
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'i' with 'y' and all 'y' with 'i' For example a b c i o t g e u z x y becomes a b c y o t g e u z x i
+And finally got this encrypted result:
+a p y e c e
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+a p i e c e
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 14, shifting every letter to the one 14 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes o p q w c h u s i n l m
+And finally got this encrypted result:
+g s k w b u
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+s e w i n g
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Inverse order, reading the message from end to start. For example a b c i o t g e u z x y becomes y x z u e g t o i c b a
+And finally got this encrypted result:
+n o h p y s
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+s y p h o n
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (0, 2, 1) respectively. For example a b c i o t g e u z x y becomes a c b i t o g u e z y x
+And finally got this encrypted result:
+c i r s y p
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+c r i s p y
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (1, 2, 0) respectively. For example a b c i o t g e u z x y becomes c a b t i o u g e y z x
+And finally got this encrypted result:
+a g r s p h
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+g r a p h s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping adjacent characters, first one swaps with second one, third with forth and so on. For example a b c i o t g e u z x y becomes b a i c t o e g z u y x
+And finally got this encrypted result:
+a t k c d e
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+t a c k e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 8, shifting every letter to the one (8 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes i k m t a g u t k q p r
+And finally got this encrypted result:
+o a k a q f
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+g r a p e s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'y' with 'a' and all 'a' with 'y' For example a b c i o t g e u z x y becomes y b c i o t g e u z x a
+And finally got this encrypted result:
+m y n g o s
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+m a n g o s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (1, 0, 2) respectively. For example a b c i o t g e u z x y becomes b a c o i t e g u x z y
+And finally got this encrypted result:
+i h t e h r
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+h i t h e r
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 6, shifting every letter to the one 6 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes g h i o u z m k a f d e
+And finally got this encrypted result:
+i n k k y e
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+c h e e s y
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'u' with 'a' and all 'a' with 'u' For example a b c i o t g e u z x y becomes u b c i o t g e a z x y
+And finally got this encrypted result:
+v e n i u l
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+v e n i a l
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 1, shifting every letter to the one (1 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes b d f m t z n m d j i k
+And finally got this encrypted result:
+d c s t j x
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+c a p p e r
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 2, shifting every letter to the one (2 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes c e g n u a o n e k j l
+And finally got this encrypted result:
+f u m s q f
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+d r i n k y
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 9, shifting every letter to the one (9 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes j l n u b h v u l r q s
+And finally got this encrypted result:
+x b a t n b
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+o r p h a n
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'a' with 'e' and all 'e' with 'a' For example a b c i o t g e u z x y becomes e b c i o t g a u z x y
+And finally got this encrypted result:
+b a f o r a
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+b e f o r e
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping first half of the message with the second half. For example a b c i o t g e u z x y becomes g e u z x y a b c i o t
+And finally got this encrypted result:
+t e d d e n
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+d e n t e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'u' with 'a' and all 'a' with 'u' For example a b c i o t g e u z x y becomes u b c i o t g e a z x y
+And finally got this encrypted result:
+n i c e s t
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+n i c e s t
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'y' with 'i' and all 'i' with 'y' For example a b c i o t g e u z x y becomes a b c y o t g e u z x i
+And finally got this encrypted result:
+e y g h t s
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+e i g h t s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping first half of the message with the second half. For example a b c i o t g e u z x y becomes g e u z x y a b c i o t
+And finally got this encrypted result:
+f f s s n i
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+s n i f f s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 3, shifting every letter to the one (3 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes d f h o v b p o f l k m
+And finally got this encrypted result:
+f y w j s m
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+c u r d l e
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'a' with 'y' and all 'y' with 'a' For example a b c i o t g e u z x y becomes y b c i o t g e u z x a
+And finally got this encrypted result:
+w y i v e d
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+w a i v e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (2, 0, 1) respectively. For example a b c i o t g e u z x y becomes b c a o t i e u g x y z
+And finally got this encrypted result:
+o i f e d l
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+f o i l e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 4, shifting every letter to the one 4 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes e f g m s x k i y d b c
+And finally got this encrypted result:
+e p m i r w
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+a l i e n s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 9, shifting every letter to the one (9 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes j l n u b h v u l r q s
+And finally got this encrypted result:
+o v f f r g
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+f l u t e s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping first half of the message with the second half. For example a b c i o t g e u z x y becomes g e u z x y a b c i o t
+And finally got this encrypted result:
+e a m s t r
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+s t r e a m
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (2, 1, 0) respectively. For example a b c i o t g e u z x y becomes c b a t o i u e g y x z
+And finally got this encrypted result:
+n o s a t a
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+s o n a t a
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (0, 2, 1) respectively. For example a b c i o t g e u z x y becomes a c b i t o g u e z y x
+And finally got this encrypted result:
+m t u a e t
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+m u t a t e
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (1, 2, 0) respectively. For example a b c i o t g e u z x y becomes c a b t i o u g e y z x
+And finally got this encrypted result:
+e w r h n c
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+w r e n c h
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'o' with 'u' and all 'u' with 'o' For example a b c i o t g e u z x y becomes a b c i u t g e o z x y
+And finally got this encrypted result:
+h u o r l y
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+h o u r l y
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 21, shifting every letter to the one 21 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes v w x d j o b z p u s t
+And finally got this encrypted result:
+k v y y z y
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+p a d d e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (1, 0, 2) respectively. For example a b c i o t g e u z x y becomes b a c o i t e g u x z y
+And finally got this encrypted result:
+e r m v o e
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+r e m o v e
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 15, shifting every letter to the one 15 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes p q r x d i v t j o m n
+And finally got this encrypted result:
+q t i i t g
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+b e t t e r
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (1, 0, 2) respectively. For example a b c i o t g e u z x y becomes b a c o i t e g u x z y
+And finally got this encrypted result:
+e r o e p n
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+r e o p e n
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (1, 2, 0) respectively. For example a b c i o t g e u z x y becomes c a b t i o u g e y z x
+And finally got this encrypted result:
+l p o y i t
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+p o l i t y
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'e' with 'y' and all 'y' with 'e' For example a b c i o t g e u z x y becomes a b c i o t g y u z x e
+And finally got this encrypted result:
+a m u s y r
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+a m u s e r
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Inverse order, reading the message from end to start. For example a b c i o t g e u z x y becomes y x z u e g t o i c b a
+And finally got this encrypted result:
+n o i t a n
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+n a t i o n
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 21, shifting every letter to the one 21 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes v w x d j o b z p u s t
+And finally got this encrypted result:
+n r v o c z
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+s w a t h e
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping adjacent characters, first one swaps with second one, third with forth and so on. For example a b c i o t g e u z x y becomes b a i c t o e g z u y x
+And finally got this encrypted result:
+e m s s d e
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+m e s s e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 7, shifting every letter to the one 7 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes h i j p v a n l b g e f
+And finally got this encrypted result:
+h j a p c l
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+a c t i v e
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 20, shifting every letter to the one 20 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes u v w c i n a y o t r s
+And finally got this encrypted result:
+b o g v o a
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+h u m b u g
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping first half of the message with the second half. For example a b c i o t g e u z x y becomes g e u z x y a b c i o t
+And finally got this encrypted result:
+a k e i n t
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+i n t a k e
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (0, 2, 1) respectively. For example a b c i o t g e u z x y becomes a c b i t o g u e z y x
+And finally got this encrypted result:
+d f e i s e
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+d e f i e s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 2, shifting every letter to the one (2 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes c e g n u a o n e k j l
+And finally got this encrypted result:
+q i j j x z
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+o f f e r s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (0, 2, 1) respectively. For example a b c i o t g e u z x y becomes a c b i t o g u e z y x
+And finally got this encrypted result:
+g i u t r a
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+g u i t a r
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Shift and increment cipher with a base of 3, shifting every letter to the one (3 + position) after it in the ABC cyclically. For example a b c i o t g e u z x y becomes d f h o v b p o f l k m
+And finally got this encrypted result:
+h p f v z m
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+e l a p s e
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping adjacent characters, first one swaps with second one, third with forth and so on. For example a b c i o t g e u z x y becomes b a i c t o e g z u y x
+And finally got this encrypted result:
+a m l i d e
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+m a i l e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Inverse order, reading the message from end to start. For example a b c i o t g e u z x y becomes y x z u e g t o i c b a
+And finally got this encrypted result:
+s e n i h s
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+s h i n e s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping adjacent characters, first one swaps with second one, third with forth and so on. For example a b c i o t g e u z x y becomes b a i c t o e g z u y x
+And finally got this encrypted result:
+r p n a s k
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+p r a n k s
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping adjacent characters, first one swaps with second one, third with forth and so on. For example a b c i o t g e u z x y becomes b a i c t o e g z u y x
+And finally got this encrypted result:
+i l u q d i
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+l i q u i d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Permutation cipher in which charceters (0, 1, 2) move to positions (0, 2, 1) respectively. For example a b c i o t g e u z x y becomes a c b i t o g u e z y x
+And finally got this encrypted result:
+d l o l d e
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+d o l l e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 5, shifting every letter to the one 5 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes f g h n t y l j z e c d
+And finally got this encrypted result:
+x y f y j i
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+s t a t e d
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Caesar cipher or shift cipher with a distance of 2, shifting every letter to the one 2 after it in the ABC cyclically. For example a b c i o t g e u z x y becomes c d e k q v i g w b z a
+And finally got this encrypted result:
+o q v q y p
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+m o t o w n
+"
+"I have a secret message.
+I used the following encryption methods:
+1. Swapping all 'y' with 'a' and all 'a' with 'y' For example a b c i o t g e u z x y becomes y b c i o t g e u z x a
+And finally got this encrypted result:
+m u c o u s
+Can you help me decipher the original message?
+","Deciphering step by step:
+
+After the decrypting the 1. step, we get the original message:
+m u c o u s
+"
